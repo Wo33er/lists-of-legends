@@ -88,5 +88,19 @@ module.exports = [
         niceName: "Brian Miller",
         platform: 4,
         id: "4611686018471083511"
-    }    
+    },
+    {
+        name: "Dankatron",
+        platformName: "Dankatron#1611",
+        niceName: "Danker",
+        platform: 4,
+        id: "4611686018471102629"
+    },
+    {
+        name: "alohagrace",
+        platformName: "alohagrace#1608",
+        niceName: "Grace",
+        platform: 4,
+        id: "4611686018468621329"
+    }
 ]
