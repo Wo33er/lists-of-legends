@@ -1,5 +1,5 @@
 /node_modules
-/public/css
+/app/public/css
 package-lock.json
 .env
 .DS_Store
