@@ -1,0 +1,195 @@
+.wow-character {
+    display: flex;
+    background-color: #160f09;
+    margin-bottom: 25px;
+    height: 70px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.wow-character-avatar {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 140%;
+    background-position: 75% 50%;
+    width: 100px;
+    height: 70px;
+    
+    @media screen and (max-width: 650px) {
+        background-size: 140% !important;
+        background-position: 100% 50% !important;
+        width: 100px !important;
+        height: 70px !important;
+    }
+}
+.wow-character-faction {
+    background-image:url('/images/wow-factions.png')
+    background-size: 200%;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+
+    &.wow-faction-1 {
+        background-position: -20px 0;
+    }
+}
+.wow-character-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 175px;
+    z-index: 99;
+    margin-left: 75px;
+    
+    @media screen and (max-width: 650px) {
+    margin-left: 50px !important;
+    }
+}
+.wow-character-name {
+    font-weight: bold;
+    font-size: 18px;
+    
+    &.wow-class-1 { color: #C79C6E; }
+    &.wow-class-2 { color: #F58CBA; }
+    &.wow-class-3 { color: #ABD473; }
+    &.wow-class-4 { color: #FFF569; }
+    &.wow-class-5 { color: #FFFFFF; }
+    &.wow-class-6 { color: #C41F3B; }
+    &.wow-class-7 { color: #0070DE; }
+    &.wow-class-8 { color: #40C7EB; }
+    &.wow-class-9 { color: #8787ED; }
+    &.wow-class-10 { color: #00FF96; }
+    &.wow-class-11 { color: #FF7D0A; }
+    &.wow-class-12 { color: #A330C9; }
+}
+.wow-character-titles {
+    font-style: italic;
+    font-size: 11px;
+
+    &> .wow-race-1:after { content: "Human"; }
+    &> .wow-race-2:after { content: "Orc"; }
+    &> .wow-race-3:after { content: "Dwarf"; }
+    &> .wow-race-4:after { content: "Nightelf"; }
+    &> .wow-race-5:after { content: "Undead"; }
+    &> .wow-race-6:after { content: "Tauren"; }
+    &> .wow-race-7:after { content: "Gnome"; }
+    &> .wow-race-8:after { content: "Troll"; }
+    &> .wow-race-9:after { content: "Goblin"; }
+    &> .wow-race-10:after { content: "Bloodelf"; }
+    &> .wow-race-11:after { content: "Draenei"; }
+    &> .wow-race-22:after { content: "Worgen"; }
+    &> .wow-race-24:after { content: "Pandaren"; }
+    &> .wow-race-25:after { content: "Pandaren"; }
+    &> .wow-race-26:after { content: "Pandaren"; }
+    &> .wow-race-27:after { content: "Nightborne"; }
+    &> .wow-race-28:after { content: "High Tauren"; }
+    &> .wow-race-29:after { content: "Void Elf"; }
+    &> .wow-race-30:after { content: "Light Draenei"; }
+    &> .wow-race-34:after { content: "Dark Dwarf"; }
+    &> .wow-race-36:after { content: "Mag'har Orc"; }
+
+    &> .wow-class-1:after { content: "Warrior"; }
+    &> .wow-class-2:after { content: "Paladin"; }
+    &> .wow-class-3:after { content: "Hunter"; }
+    &> .wow-class-4:after { content: "Rogue"; }
+    &> .wow-class-5:after { content: "Priest"; }
+    &> .wow-class-6:after { content: "Death Knight"; }
+    &> .wow-class-7:after { content: "Shaman"; }
+    &> .wow-class-8:after { content: "Mage"; }
+    &> .wow-class-9:after { content: "Warlock"; }
+    &> .wow-class-10:after { content: "Monk"; }
+    &> .wow-class-11:after { content: "Druid"; }
+    &> .wow-class-12:after { content: "Demon Hunter"; }
+}
+.wow-character-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: auto;
+
+    &> div {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+
+        &:hover {
+            background-color: black;
+            cursor: pointer;
+        }
+    }
+    &> div:last-of-type {
+        margin-right: 25px;
+
+        @media screen and (max-width: 650px) {
+            margin-right: 0px !important;
+        }
+    }
+    & span {
+        font-weight: bold;
+        padding-right: 3px;
+    }
+}
+.wow-character-details-text {
+    &:before {
+        color: #dbdbdb;
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+}
+.wow-character-details-level {
+    &:before {
+        content: "iLvl";
+    }
+}
+.wow-character-details-achievements {
+    &:before {
+        content: "Achievements";
+    }
+    @media screen and (max-width: 650px) {
+        &:before {
+            content: "Achiev" !important;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        &:before {
+            content: "Ach" !important;
+        }
+    }
+}
+.wow-character-details-neck {
+    &:before {
+        content: "Azeroth Neck";
+    }
+    @media screen and (max-width: 650px) {
+        &:before {
+            content: "Neck" !important;
+        }
+    }
+}
+.wow-character-details-pets {
+    &:before {
+        content: "Pets";
+    }
+    @media screen and (max-width: 400px) {
+        &:before {
+            content: "Pet" !important;
+        }
+    }
+}
+.wow-character-details-mounts {
+    &:before {
+        content: "Mounts";
+    }
+    @media screen and (max-width: 400px) {
+        &:before {
+            content: "Mount" !important;
+        }
+    }
+}

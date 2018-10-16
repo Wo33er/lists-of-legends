@@ -1,0 +1,20 @@
+redis:
+  container_name: listsoflegends_cache
+  image: redis
+  expose:
+    - 6379
+app:
+  container_name: listsoflegends_site
+  build: ./
+  volumes:
+    - ./:/var/www
+  links:
+    - redis
+  ports:
+    - 3001:3001
+  environment:
+    - REDIS_URL=redis://listsoflegends_cache
+    - NODE_ENV=development
+    - PORT=3001
+  command:
+    sh -c 'npm i && npm run ${PLATFORM}'

@@ -1,0 +1,104 @@
+.destiny-profile {
+    display: flex;
+    background-color: #160f09;
+    margin-bottom: 25px;
+    min-height: 70px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.destiny-profile-summary {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 125px;
+    margin-left: 25px;
+}
+.destiny-profile-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+.destiny-profile-triumphs {
+    font-size: 11px;
+    color: #dbdbdb;
+    font-style: italic;
+}
+.destiny-profile-characters {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0;
+    justify-content: flex-end;
+}
+.destiny-character {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15px 26px 15px 0;
+}
+.destiny-character-emblem {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px 0 40px;
+    height: 42px;
+    position: relative;
+
+    &:hover {
+        opacity: 0.9;
+        cursor: pointer;
+    }
+}
+.destiny-character-class {
+    background-image:url('/images/destiny-classes.png')
+    background-size: 121px 56px;
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 55px;
+    position: absolute;
+    top: -4px;
+    right: 10px;
+
+    &.destiny-character-class-0 { background-position: -43px 0; }
+    &.destiny-character-class-1 { background-position: -4px 0; }
+    &.destiny-character-class-2 { background-position: -82px 0; }
+}
+.destiny-character-details {
+    display: flex;
+    flex-direction: column;
+}
+.destiny-character-light {
+    color: #e0e04e;
+
+    &:after {
+        content: "\2726 ";
+        color: #e0e04e;
+        padding-left: 3px;
+    }
+}
+.destiny-character-level {
+    font-weight: bold;
+}
+.destiny-character-stats {
+    display: flex;
+}
+.destiny-character-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &.destiny-character-stat-Power {
+        display: none;
+    }
+}
+.destiny-character-stat-icon {
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+}
+.destiny-character-stat-value {
+
+}
