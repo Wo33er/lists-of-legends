@@ -81,5 +81,12 @@ module.exports = [
         niceName: "David Pritchett",
         platform: 4,
         id: "4611686018467355202"
-    }
+    },
+    {
+        name: "brimil01",
+        platformName: "brimil01#1169",
+        niceName: "Brian Miller",
+        platform: 4,
+        id: "4611686018471083511"
+    }    
 ]
