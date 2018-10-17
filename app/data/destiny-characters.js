@@ -102,5 +102,19 @@ module.exports = [
         niceName: "Grace",
         platform: 4,
         id: "4611686018468621329"
+    },
+    {
+        name: "Chasey",
+        platformName: "Chasey#1677",
+        niceName: "Mike",
+        platform: 4,
+        id: "4611686018470850404"
+    },
+    {
+        name: "Rectifyer",
+        platformName: "Rectifyer#1642",
+        niceName: "Sebastian Dalby",
+        platform: 4,
+        id: "4611686018467285907"
     }
 ]
