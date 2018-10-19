@@ -116,5 +116,19 @@ module.exports = [
         niceName: "Sebastian Dalby",
         platform: 4,
         id: "4611686018467285907"
+    },
+    {
+        name: "Swade",
+        platformName: "Swade#1332",
+        niceName: "Wade Winebrenner",
+        platform: 4,
+        id: "4611686018467493269"
+    },
+    {
+        name: "doubleminy",
+        platformName: "doubleminy#1168",
+        niceName: "Scott",
+        platform: 4,
+        id: "4611686018471459123"
     }
 ]
