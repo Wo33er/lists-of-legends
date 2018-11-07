@@ -81,5 +81,54 @@ module.exports = [
         niceName: "David Pritchett",
         platform: 4,
         id: "4611686018467355202"
+    },
+    {
+        name: "brimil01",
+        platformName: "brimil01#1169",
+        niceName: "Brian Miller",
+        platform: 4,
+        id: "4611686018471083511"
+    },
+    {
+        name: "Dankatron",
+        platformName: "Dankatron#1611",
+        niceName: "Danker",
+        platform: 4,
+        id: "4611686018471102629"
+    },
+    {
+        name: "alohagrace",
+        platformName: "alohagrace#1608",
+        niceName: "Grace",
+        platform: 4,
+        id: "4611686018468621329"
+    },
+    {
+        name: "Chasey",
+        platformName: "Chasey#1677",
+        niceName: "Mike",
+        platform: 4,
+        id: "4611686018470850404"
+    },
+    {
+        name: "Rectifyer",
+        platformName: "Rectifyer#1642",
+        niceName: "Sebastian Dalby",
+        platform: 4,
+        id: "4611686018467285907"
+    },
+    {
+        name: "Swade",
+        platformName: "Swade#1332",
+        niceName: "Wade Winebrenner",
+        platform: 4,
+        id: "4611686018467493269"
+    },
+    {
+        name: "doubleminy",
+        platformName: "doubleminy#1168",
+        niceName: "Scott",
+        platform: 4,
+        id: "4611686018471459123"
     }
 ]
