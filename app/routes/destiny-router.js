@@ -160,10 +160,29 @@ router.get('/character/:platform?/:accountId?', async (req, res) => {
     });
 });
 
+// All Clan members with basic profile details (raw data for testing purposes)
+router.get('/clan/members/:clanId?', async (req, res) => {
+    if(req.params.clanId == null) { clanId = "2109427"; } else { clanId = req.params.clanId }
+
+    destinyGetClanMembersByClanId(clanId, function(error, callback) {
+        var destinyData = callback;
+    
+        res.render(__dirname + '/../views/clan-members', {
+            destinyData
+        });
+    });
+});
+
 // All Clan members (raw data for testing purposes)
 router.get('/clan/:clanId?', async (req, res) => {
     if(req.params.clanId == null) { clanId = "2109427"; } else { clanId = req.params.clanId }
-    
+
+    destinyGetClanByClanId(clanId, function(error, callback) {
+        res.send(callback)
+    });
+});
+
+function destinyGetClanByClanId(clanId, callback) {
     request({
         url: "http://www.bungie.net/Platform/GroupV2/"+ clanId +"/Members/",
         json: true,
@@ -172,10 +191,68 @@ router.get('/clan/:clanId?', async (req, res) => {
         if (error || body.ErrorCode != 1) {
             console.log("Destiny clan endpoint failed");
         } else {
-            return res.send(body);
+            callback(null, body.Response.results);
         }
     });
-});
+}
+
+function destinyGetClanMembersByClanId(character, callback) {
+    async.waterfall([
+        // Get clan information
+        function(callback) {
+            destinyGetClanByClanId(clanId, function(error, clanData) {
+                callback(null, clanData);
+            });
+        },
+        // Get clan character stats
+        function(clanData, callback) {
+            async.map(clanData, destinyGetBasicProfileByAccountId, function(error , characterData) {
+                characterData.sort(function(a, b) {
+                    return b.characters[0].light - a.characters[0].light;
+                });
+                callback(null, characterData);
+            });
+        }
+    ], function (error, result) {
+        if (error) { return console.log("Destiny clan members endpoint failed"); };
+        callback(null, result);
+    });
+}
+
+function destinyGetBasicProfileByAccountId(character, callback) {
+    var characterPlatform = character.destinyUserInfo.membershipType;
+    var characterId = character.destinyUserInfo.membershipId;
+    
+    request({
+        url: "http://www.bungie.net/Platform/Destiny2/"+ characterPlatform +"/Profile/"+ characterId +"/?components=profiles,Characters",
+        json: true,
+        headers: {'X-API-Key': process.env.BUNGIE_KEY}
+    }, function (error, response, body) {
+        if (error || body.ErrorCode != 1) {
+            return callback("Destiny basic profile endpoint failed");
+        } else {
+            var lastPlayed = new Date(body.Response.profile.data.dateLastPlayed.split('T')[0]);
+
+            var characterData = {
+                "lastPlayed": lastPlayed.toLocaleDateString("en-US", { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }),
+                "membershipType": body.Response.profile.data.userInfo.membershipType,
+                "membershipId": body.Response.profile.data.userInfo.membershipId,
+                "displayName": body.Response.profile.data.userInfo.displayName,
+            }
+            characterData.characters = [];
+            body.Response.profile.data.characterIds.forEach((value, index) => {
+                characterData.characters[index] = {
+                    "id": value,
+                    "light": body.Response.characters.data[value].light,
+                }
+            });
+            characterData.characters.sort(function(a, b) {
+                return b.light - a.light;
+            });
+            callback(null, characterData);
+        }
+    });
+}
 
 // Item manifest details (raw data for testing purposes)
 router.get('/manifest/:manifest?/:hash?', async (req, res) => {
