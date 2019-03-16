@@ -76,5 +76,17 @@ module.exports = [
         niceName: "J",
         platform: "uplay",
         id: "7eb17bd4-f392-484f-8f07-3f17760ed772",
+    },
+    {
+        name: "rustybower1337",
+        niceName: "Rusty",
+        platform: "uplay",
+        id: "039b005f-0fe1-41ea-a40b-4fe42bcc9b2b",
+    },
+    {
+        name: "Rectifyer",
+        niceName: "Seb",
+        platform: "uplay",
+        id: "1f50dc15-2b89-4a90-a42d-6c4037902a20",
     }
 ]
