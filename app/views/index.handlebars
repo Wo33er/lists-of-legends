@@ -1,9 +1,29 @@
 <div class="game-selector">
     <div class="game-selector-text">Pick a game:</div>
     <div class="game-selector-options">
-        <div id="game-selector-destiny" class="game-selector-on"><a onclick="showDestiny()" href="#destiny"></a></div>
+        <div id="game-selector-division" class="game-selector-on"><a onclick="showDivision()" href="#division"></a></div>
+        <div id="game-selector-destiny" class="game-selector-off"><a onclick="showDestiny()" href="#destiny"></a></div>
         <div id="game-selector-wow" class="game-selector-off"><a onclick="showWoW()" href="#wow"></a></div>
     </div>
+</div>
+
+<div id="division-container" style="display: none;">
+    {{#each divisionData}}
+        <div class="division-profile">
+            <div class="division-profile-avatar" style="background-image:url('{{avatar_146}}')"></div>
+            <div class="division-profile-summary">
+                <div class="division-profile-name">{{name}}</div>
+                <div class="division-profile-spec">{{niceName}} {{specialization}}</div>
+            </div>
+            <div class="division-profile-details">
+                <div class="division-profile-details-text division-profile-details-gearscore">{{gearscore}}</div>
+                <div class="division-profile-details-text division-profile-details-pvelvl">{{level_pve}}</div>
+                <div class="division-profile-details-text division-profile-details-pvplvl">{{level_dz}}</div>
+                <div class="division-profile-details-text division-profile-details-pvekills">{{kills_npc}}</div>
+                <div class="division-profile-details-text division-profile-details-pvpkills">{{kills_pvp}}</div>
+            </div>
+        </div>
+    {{/each}}
 </div>
 
 <div id="destiny-container">
@@ -61,23 +81,38 @@
 </div>
 
 <script>
-    if(location.hash && location.hash === "#destiny") {
-        showDestiny();
+    if(location.hash && location.hash === "#division") {
+        showDivision();
     } else if(location.hash && location.hash === "#wow") {
         showWoW();
+    } else if(location.hash && location.hash === "#destiny") {
+        showDestiny();
+    }
+    function showDivision() {
+        document.getElementById("division-container").style.display = "block";
+        document.getElementById("game-selector-division").className = "game-selector-on";
+
+        document.getElementById("wow-container").style.display = "none";
+        document.getElementById("destiny-container").style.display = "none";
+        document.getElementById("game-selector-wow").className = "game-selector-off";
+        document.getElementById("game-selector-destiny").className = "game-selector-off";
     }
     function showWoW() {
         document.getElementById("wow-container").style.display = "block";
         document.getElementById("game-selector-wow").className = "game-selector-on";
 
         document.getElementById("destiny-container").style.display = "none";
+        document.getElementById("division-container").style.display = "none";
         document.getElementById("game-selector-destiny").className = "game-selector-off";
+        document.getElementById("game-selector-division").className = "game-selector-off";
     }
     function showDestiny() {
         document.getElementById("destiny-container").style.display = "block";
         document.getElementById("game-selector-destiny").className = "game-selector-on";
 
         document.getElementById("wow-container").style.display = "none";
+        document.getElementById("division-container").style.display = "none";
         document.getElementById("game-selector-wow").className = "game-selector-off";
+        document.getElementById("game-selector-division").className = "game-selector-off";
     }
 </script>

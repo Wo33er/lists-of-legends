@@ -38,12 +38,20 @@ const redisClient = {
 
 // Routes - General
 app.get('/', async (req, res) => {
+    var googleAnalytics = null;
+    var divisionData = JSON.parse(await redisClient.getAsync("division-characters"));
     var wowData = JSON.parse(await redisClient.getAsync("wow-characters"));
     var destinyData = JSON.parse(await redisClient.getAsync("destiny-characters"));
 
+    if(process.env.PLATFORM == "prod") {
+        googleAnalytics = process.env.GOOGLE_ANALYTICS;
+    }
+
     res.render(__dirname + '/views/index', {
+        divisionData,
         wowData,
-        destinyData
+        destinyData,
+        googleAnalytics: googleAnalytics
     });
 });
 
@@ -52,6 +60,10 @@ app.get('/data/:key', async (req, res) => {
     const rawData = await redisClient.getAsync(key);
     return res.json(JSON.parse(rawData));
 });
+
+// Routes - Division
+var divisionRouter = require('./routes/division-router');
+app.use('/division', divisionRouter);
 
 // Routes - WoW
 var wowRouter = require('./routes/wow-router');

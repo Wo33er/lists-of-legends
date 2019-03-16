@@ -15,13 +15,19 @@
 		<meta name="twitter:site" content="ListsofLegends.com">
 		<meta name="twitter:image" content="http://www.listsoflegends.com/images/listsoflegends_preview.jpg">
 		<title>Lists of Legends</title>
-		<link href="/css/reset.css" rel="stylesheet">
 		<link href="/css/app.css" rel="stylesheet">
-		<link href="/css/wow.css" rel="stylesheet">
-		<link href="/css/destiny.css" rel="stylesheet">
 		<link rel="shortcut icon" href="/images/favicon.ico">
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+        {{#if googleAnalytics}}
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{googleAnalytics}}"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{googleAnalytics}}');
+            </script>
+        {{/if}}
 	</head>
     <body>
         <header id="master-header">
