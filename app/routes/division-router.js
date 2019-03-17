@@ -47,8 +47,7 @@ function divisionGetFullCharacter(character, callback) {
     }, function (error, response, body) {
         if (error || response.statusCode != 200) {
             console.log("Division endpoint failed");
-            console.log(body);
-            callback(null);
+            callback(true);
         } else {
             body.niceName = character.niceName
             callback(null, body);

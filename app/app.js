@@ -13,7 +13,10 @@ app.engine('handlebars', exphbs({
     layoutsDir: __dirname + '/views/layouts',
     helpers: {
         capString: function(value) {
-            return value.charAt(0).toUpperCase() + value.slice(1);
+            if(value != null) {
+                return value.charAt(0).toUpperCase() + value.slice(1);
+            }
+            return value;
         }
     },
 }));
