@@ -26,7 +26,7 @@ router.get('/characters/all/:update?', async (req, res) => {
 
     async.map(divisionCharacters, divisionGetFullCharacter, function(error , characterData) {
         characterData.sort(function(a, b) {
-            return b.gearscore - a.gearscore;
+            return (b.level_pve - a.level_pve) || (b.gearscore - a.gearscore);
         });
         
         if(error) { console.log("Error: "+ error); }

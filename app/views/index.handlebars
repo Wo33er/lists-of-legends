@@ -8,22 +8,36 @@
 </div>
 
 <div id="division-container">
-    {{#each divisionData}}
-        <div class="division-profile">
-            <div class="division-profile-avatar" style="background-image:url('{{avatar_146}}')"></div>
-            <div class="division-profile-summary">
-                <div class="division-profile-name">{{name}}</div>
-                <div class="division-profile-spec">{{niceName}} {{specialization}}</div>
-            </div>
-            <div class="division-profile-details">
-                <div class="division-profile-details-text division-profile-details-gearscore">{{gearscore}}</div>
-                <div class="division-profile-details-text division-profile-details-pvelvl">{{level_pve}}</div>
-                <div class="division-profile-details-text division-profile-details-pvplvl">{{level_dz}}</div>
-                <div class="division-profile-details-text division-profile-details-pvekills">{{kills_npc}}</div>
-                <div class="division-profile-details-text division-profile-details-pvpkills">{{kills_pvp}}</div>
-            </div>
+    <div class="division-titles">
+        <div class="division-title-agent"></div>
+        <div class="division-title-details">
+            <div class="division-title-gearscore">Gear #</div>
+            <div class="division-title-pvelvl">PvE Lvl</div>
+            <div class="division-title-pvplvl">DZ Lvl</div>
+            <div class="division-title-pvekills">PvE Kills</div>
+            <div class="division-title-pvpkills">PvP Kills</div>
         </div>
-    {{/each}}
+    </div>
+    <div class="division-profiles">
+        {{#each divisionData}}
+            <div class="division-profile">
+                <div class="division-profile-agent">
+                    <div class="division-profile-avatar" style="background-image:url('{{avatar_146}}')"></div>
+                    <div class="division-profile-summary">
+                        <div class="division-profile-name">{{name}}</div>
+                        <div class="division-profile-spec">{{niceName}} | {{capString specialization}}</div>
+                    </div>
+                </div>
+                <div class="division-profile-details">
+                    <div class="division-profile-details-text division-profile-details-gearscore">{{gearscore}}</div>
+                    <div class="division-profile-details-text division-profile-details-pvelvl">{{level_pve}}</div>
+                    <div class="division-profile-details-text division-profile-details-pvplvl">{{level_dz}}</div>
+                    <div class="division-profile-details-text division-profile-details-pvekills">{{kills_npc}}</div>
+                    <div class="division-profile-details-text division-profile-details-pvpkills">{{kills_pvp}}</div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
 </div>
 
 <div id="destiny-container" style="display: none;">

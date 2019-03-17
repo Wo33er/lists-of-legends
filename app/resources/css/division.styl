@@ -1,29 +1,85 @@
-.division-profile {
+.division-titles {
     display: flex;
     background-color: #160f09;
-    margin-bottom: 25px;
-    min-height: 70px;
-    border-radius: 5px;
+    min-height: 50px;
+    border-radius: 5px 5px 0 0;
+    align-items: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.division-title-agent {
+    justify-content: space-between;
+    flex: 0 0 auto;
+    justify-content: center;
+    flex: 0 0 250px;
+}
+
+.division-title-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: auto;
+
+    &> div {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    & > div:first-of-type {
+        margin-left: 10px;
+    }
+    & > div:last-of-type {
+        margin-right: 10px;
+    }
+}
+
+.division-profiles {
+    &> div:nth-of-type(odd) {
+        background-color: #353535;
+        
+        .division-profile-details > div:hover {
+            background-color: #313131;
+            cursor: pointer;
+        }
+    }
+    &> div:nth-of-type(even) {
+        background-color: #2d2d2d;
+
+        .division-profile-details > div:hover {
+            background-color: #292929;
+            cursor: pointer;
+        }
+    }
+}
+.division-profile {
+    display: flex;
+    border-bottom: 1px solid #383838;
+    min-height: 40px;
     overflow: hidden;
+}
+.division-profile-agent {
+    display: flex;
+    flex: 0 0 250px;
 }
 .division-profile-avatar {
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: 50%;
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
     display: flex;
     align-self: center;
-    margin: 15px;
+    margin: 5px;
 }
 .division-profile-summary {
     display: flex;
-    flex: 0 0 auto;
     flex-direction: column;
     justify-content: center;
-    width: 125px;
+    margin-left: 10px;
 }
+
 .division-profile-name {
     font-weight: bold;
     font-size: 18px;
@@ -41,28 +97,22 @@
     flex: auto;
 
     &> div {
-        height: 100%;
+        flex: 1;
         display: flex;
-        flex-direction: column;
         justify-content: center;
+        text-align: center;
+        height: 100%;
         align-items: center;
-        padding: 0 10px;
-
-        &:hover {
-            background-color: black;
-            cursor: pointer;
-        }
     }
-    &> div:last-of-type {
-        margin-right: 25px;
+    & > div:first-of-type {
+        margin-left: 10px;
+    }
+    & > div:last-of-type {
+        margin-right: 10px;
 
         @media screen and (max-width: 650px) {
             margin-right: 0px !important;
         }
-    }
-    & span {
-        font-weight: bold;
-        padding-right: 3px;
     }
 }
 .division-profile-details-text {
@@ -71,30 +121,5 @@
         font-weight: bold;
         margin-bottom: 5px;
         text-align: center;
-    }
-}
-.division-profile-details-gearscore {
-    &:before {
-        content: "Gear #";
-    }
-}
-.division-profile-details-pvelvl {
-    &:before {
-        content: "PvE Lvl";
-    }
-}
-.division-profile-details-pvplvl {
-    &:before {
-        content: "PvP Lvl";
-    }
-}
-.division-profile-details-pvekills {
-    &:before {
-        content: "PvE Kills";
-    }
-}
-.division-profile-details-pvpkills {
-    &:before {
-        content: "PvP Kills";
     }
 }

@@ -10,7 +10,12 @@ const app = express();
 
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
-    layoutsDir: __dirname + '/views/layouts'
+    layoutsDir: __dirname + '/views/layouts',
+    helpers: {
+        capString: function(value) {
+            return value.charAt(0).toUpperCase() + value.slice(1);
+        }
+    },
 }));
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views/');
