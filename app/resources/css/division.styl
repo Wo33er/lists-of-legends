@@ -8,10 +8,11 @@
     text-transform: uppercase;
 }
 .division-title-agent {
-    justify-content: space-between;
-    flex: 0 0 auto;
-    justify-content: center;
     flex: 0 0 250px;
+    
+    @media screen and (max-width: 650px) {
+        flex: 0 0 150px !important;
+    }
 }
 
 .division-title-details {
@@ -31,6 +32,10 @@
     }
     & > div:last-of-type {
         margin-right: 10px;
+
+        @media screen and (max-width: 650px) {
+            margin-right: 0px !important;
+        }
     }
 }
 
@@ -61,6 +66,10 @@
 .division-profile-agent {
     display: flex;
     flex: 0 0 250px;
+    
+    @media screen and (max-width: 650px) {
+        flex: 0 0 150px !important;
+    }
 }
 .division-profile-avatar {
     background-repeat: no-repeat;
@@ -78,11 +87,19 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 10px;
+
+    @media screen and (max-width: 650px) {
+        margin-left: 3px !important;
+    }
 }
 
 .division-profile-name {
     font-weight: bold;
     font-size: 18px;
+    
+    @media screen and (max-width: 650px) {
+        font-size: 13px !important;
+    }
 }
 .division-profile-spec {
     font-size: 11px;
