@@ -94,5 +94,11 @@ module.exports = [
         niceName: "Travis",
         platform: "uplay",
         id: "1f0b4ecb-7629-46fb-822c-01c75d5f5d76",
+    },
+    {
+        name: "BruxB",
+        niceName: "Brooks",
+        platform: "uplay",
+        id: "783ecaf6-5a75-424d-925c-a198e397bfff",
     }
 ]
