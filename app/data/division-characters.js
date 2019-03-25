@@ -112,5 +112,11 @@ module.exports = [
         niceName: "James L",
         platform: "uplay",
         id: "3331d5aa-3bfe-4654-a7a5-de18c00fc967",
+    },
+    {
+        name: "chuckz0rd",
+        niceName: "Mauricio",
+        platform: "uplay",
+        id: "90e40877-bb83-4bfe-af56-b9efd68a2977",
     }
 ]
