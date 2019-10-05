@@ -40,6 +40,25 @@ router.get('/characters/all/:update?', async (req, res) => {
     });
 });
 
+router.get('/characters/bff/:update?', async (req, res) => {
+    var destinyCharacters = require("../data/bff-destiny-characters.js");
+
+    async.map(destinyCharacters, destinyGetFullProfile, function(error , characterData) {
+        characterData.sort(function(a, b) {
+            return b.characters[0].light - a.characters[0].light;
+        });
+        
+        if(error) { console.log("Error: "+ error); }
+        else if(req.params.update) {
+            redisClient.setAsync("bff-destiny-characters", JSON.stringify(characterData));
+            console.log("Success ~ Updated "+ characterData.length +" Destiny characters")
+        }
+
+        res.type("json");
+        res.end(JSON.stringify(characterData));
+    });
+});
+
 function destinyGetFullProfile(character, callback) {
     async.waterfall([
         // Get foundation character information
@@ -72,7 +91,7 @@ function destinyGetProfileByAccountId(character, callback) {
                 "membershipId": body.Response.profile.data.userInfo.membershipId,
                 "displayName": body.Response.profile.data.userInfo.displayName,
                 "triumphScore": body.Response.profileRecords.data.score,
-                "niceName": character.niceName,
+                "niceName": character.niceName
             }
             characterData.characters = [];
             body.Response.profile.data.characterIds.forEach((value, index) => {
@@ -151,7 +170,7 @@ function destinyGetCharacterStatsByCharacterId(characterData, callback) {
 // Single character profile (raw data for testing purposes)
 router.get('/character/:platform?/:accountId?', async (req, res) => {
     var character = {};
-    if(req.params.platform == null) { character.platform="4"; } else { character.platform = req.params.platform }
+    if(req.params.platform == null) { character.platform="3"; } else { character.platform = req.params.platform }
     if(req.params.accountId == null) { character.id="4611686018467342484"; } else { character.id = req.params.accountId }
 
     destinyGetProfileByAccountId(character, function(error, callback) {
@@ -274,7 +293,7 @@ router.get('/manifest/:manifest?/:hash?', async (req, res) => {
 
 // Character equipment details (raw data for testing purposes)
 router.get('/equipment-details/:platform?/:accountId?/:itemId?', async (req, res) => {
-    if(req.params.platform == null) { platform = "4"; } else { platform = req.params.platform }
+    if(req.params.platform == null) { platform = "3"; } else { platform = req.params.platform }
     if(req.params.accountId == null) { accountId = "4611686018467342484"; } else { accountId = req.params.accountId }
     if(req.params.itemId == null) { itemId = "6917529069673234457"; } else { itemId = req.params.itemId }
     

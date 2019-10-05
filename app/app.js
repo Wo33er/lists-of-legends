@@ -48,7 +48,7 @@ const redisClient = {
 app.get('/', async (req, res) => {
     var googleAnalytics = null;
     var divisionData = JSON.parse(await redisClient.getAsync("division-characters"));
-    var wowData = JSON.parse(await redisClient.getAsync("wow-characters"));
+    //var wowData = JSON.parse(await redisClient.getAsync("wow-characters"));
     var destinyData = JSON.parse(await redisClient.getAsync("destiny-characters"));
 
     if(process.env.PLATFORM == "prod") {
@@ -57,7 +57,24 @@ app.get('/', async (req, res) => {
 
     res.render(__dirname + '/views/index', {
         divisionData,
-        wowData,
+        //wowData,
+        destinyData,
+        googleAnalytics: googleAnalytics
+    });
+});
+
+// Routes - General
+app.get('/bff', async (req, res) => {
+    var googleAnalytics = null;
+    var divisionData = JSON.parse(await redisClient.getAsync("bff-division-characters"));
+    var destinyData = JSON.parse(await redisClient.getAsync("bff-destiny-characters"));
+
+    if(process.env.PLATFORM == "prod") {
+        googleAnalytics = process.env.GOOGLE_ANALYTICS;
+    }
+
+    res.render(__dirname + '/views/index', {
+        divisionData,
         destinyData,
         googleAnalytics: googleAnalytics
     });

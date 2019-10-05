@@ -1,0 +1,128 @@
+.profile-titles {
+    display: flex;
+    background-color: #160f09;
+    min-height: 50px;
+    border-radius: 5px 5px 0 0;
+    align-items: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.profile-title-user {
+    flex: 0 0 250px;
+    
+    @media screen and (max-width: 650px) {
+        flex: 0 0 150px !important;
+    }
+}
+
+.profile-title-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: auto;
+
+    &> div {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    & > div:first-of-type {
+        margin-left: 10px;
+    }
+    & > div:last-of-type {
+        margin-right: 10px;
+
+        @media screen and (max-width: 650px) {
+            margin-right: 0px !important;
+        }
+    }
+}
+
+.profiles {
+    &> div:nth-of-type(odd) {
+        background-color: #353535;
+        
+        .profile-details > div:hover {
+            background-color: #313131;
+            cursor: pointer;
+        }
+    }
+    &> div:nth-of-type(even) {
+        background-color: #2d2d2d;
+
+        .profile-details > div:hover {
+            background-color: #292929;
+            cursor: pointer;
+        }
+    }
+}
+.profile {
+    display: flex;
+    border-bottom: 1px solid #383838;
+    min-height: 40px;
+    overflow: hidden;
+}
+.profile-user {
+    display: flex;
+    flex: 0 0 250px;
+    
+    @media screen and (max-width: 650px) {
+        flex: 0 0 150px !important;
+    }
+}
+.profile-avatar {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    align-self: center;
+    margin: 5px;
+}
+.profile-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+
+    @media screen and (max-width: 650px) {
+        margin-left: 3px !important;
+    }
+}
+
+.profile-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: auto;
+
+    &> div {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        height: 100%;
+        align-items: center;
+    }
+    & > div:first-of-type {
+        margin-left: 10px;
+    }
+    & > div:last-of-type {
+        margin-right: 10px;
+
+        @media screen and (max-width: 650px) {
+            margin-right: 0px !important;
+        }
+    }
+}
+.profile-details-text {
+    &:before {
+        color: #dbdbdb;
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+}

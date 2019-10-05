@@ -1,28 +1,45 @@
-.destiny-profile {
-    display: flex;
-    background-color: #160f09;
-    margin-bottom: 25px;
-    min-height: 70px;
-    border-radius: 5px;
-    overflow: hidden;
+#destiny-container {
+    min-width: 880px;
+    
+    @media screen and (max-width: 650px) {
+        min-width: 785px;
+    }
 }
-.destiny-profile-summary {
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    justify-content: center;
-    width: 125px;
-    margin-left: 25px;
-}
+
 .destiny-profile-name {
     font-weight: bold;
     font-size: 18px;
+    
+    @media screen and (max-width: 650px) {
+        font-size: 13px !important;
+    }
 }
 .destiny-profile-triumphs {
     font-size: 11px;
     color: #dbdbdb;
     font-style: italic;
 }
+
+.destiny-profile-details {
+    display: flex;
+    align-items: center;
+    flex: auto;
+
+    & > div {
+        margin: 0 12px;
+    }
+}
+.destiny-profile-details-text {
+    &:before {
+        color: #dbdbdb;
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+}
+
+//
+
 .destiny-profile-characters {
     display: flex;
     flex-wrap: wrap;
@@ -30,11 +47,10 @@
     justify-content: flex-end;
 }
 .destiny-character {
-    width: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 15px 26px 15px 0;
+    //margin: 15px 26px 15px 0;
 }
 .destiny-character-emblem {
     background-repeat: no-repeat;
@@ -54,7 +70,7 @@
 }
 .destiny-character-class {
     background-image:url('/images/destiny-classes.png')
-    background-size: 121px 56px;
+    background-size: 124px 51px;
     background-repeat: no-repeat;
     width: 35px;
     height: 55px;

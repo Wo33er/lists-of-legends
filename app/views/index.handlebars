@@ -1,76 +1,88 @@
 <div class="game-selector">
     <div class="game-selector-text">Pick a game:</div>
     <div class="game-selector-options">
-        <div id="game-selector-division" class="game-selector-on"><a onclick="showDivision()" href="#division"></a></div>
-        <div id="game-selector-destiny" class="game-selector-off"><a onclick="showDestiny()" href="#destiny"></a></div>
+        <div id="game-selector-destiny" class="game-selector-on"><a onclick="showDestiny()" href="#destiny"></a></div>
+        <div id="game-selector-division" class="game-selector-off"><a onclick="showDivision()" href="#division"></a></div>
         <div id="game-selector-wow" class="game-selector-off" style="display: none;"><a onclick="showWoW()" href="#wow"></a></div>
     </div>
 </div>
 
-<div id="division-container">
-    <div class="division-titles">
-        <div class="division-title-agent"></div>
-        <div class="division-title-details">
-            <div class="division-title-gearscore">Gear #</div>
-            <div class="division-title-pvelvl">PvE Lvl</div>
-            <div class="division-title-pvplvl">DZ Lvl</div>
-            <div class="division-title-pvekills">PvE Kills</div>
-            <div class="division-title-pvpkills">PvP Kills</div>
+<div id="destiny-container">
+    <div class="profile-titles">
+        <div class="profile-title-user"></div>
+        <div class="profile-title-details">
+            <div class="profile-title-guardianone">Guardian 1</div>
+            <div class="profile-title-guardiantwo">Guardian 2</div>
+            <div class="profile-title-guardianthree">Guardian 3</div>
         </div>
     </div>
-    <div class="division-profiles">
-        {{#each divisionData}}
-            <div class="division-profile">
-                <div class="division-profile-agent">
-                    <div class="division-profile-avatar" style="background-image:url('{{avatar_146}}')"></div>
-                    <div class="division-profile-summary">
-                        <div class="division-profile-name">{{name}}</div>
-                        <div class="division-profile-spec">{{niceName}} | {{capString specialization}}</div>
+    <div class="profiles">
+        {{#each destinyData}}
+            <div class="profile">
+                <div class="profile-user">
+                    <div class="profile-avatar" style="background-image:url('{{characters.0.emblem}}')"></div>
+                    <div class="profile-summary">
+                        <div class="destiny-profile-name">{{niceName}}</div>
+                        <div class="destiny-profile-triumphs">{{triumphScore}}</div>
                     </div>
                 </div>
-                <div class="division-profile-details">
-                    <div class="division-profile-details-text division-profile-details-gearscore">{{gearscore}}</div>
-                    <div class="division-profile-details-text division-profile-details-pvelvl">{{level_pve}}</div>
-                    <div class="division-profile-details-text division-profile-details-pvplvl">{{level_dz}}</div>
-                    <div class="division-profile-details-text division-profile-details-pvekills">{{kills_npc}}</div>
-                    <div class="division-profile-details-text division-profile-details-pvpkills">{{kills_pvp}}</div>
+                <div class="destiny-profile-details">
+                    {{#each characters}}
+                        <div class="destiny-character destiny-character-{{@index}}">
+                            <div class="destiny-character-emblem" style="background-image:url('{{emblemBg}}')">
+                                <div class="destiny-character-class destiny-character-class-{{class}}"></div>
+                                <div class="destiny-character-details">
+                                    <div class="destiny-character-light" title="Light">{{light}}</div>
+                                    <div class="destiny-character-level" title="Level">{{level}}</div>
+                                </div>
+                                <div class="destiny-character-stats">
+                                    {{#each stats}}
+                                        <div class="destiny-character-stat destiny-character-stat-{{name}}">
+                                            <div class="destiny-character-stat-icon" title="{{name}}" style="background-image:url('{{icon}}')"></div>
+                                            <div class="destiny-character-stat-value" title="{{name}}">{{value}}</div>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
                 </div>
             </div>
         {{/each}}
     </div>
 </div>
 
-<div id="destiny-container" style="display: none;">
-    {{#each destinyData}}
-        <div class="destiny-profile">
-            <div class="destiny-profile-summary">
-                <div class="destiny-profile-name">{{displayName}}</div>
-                <div class="destiny-profile-triumphs">{{niceName}} | {{triumphScore}}</div>
-            </div>
-            <div class="destiny-profile-characters">
-                {{#each characters}}
-                    <div class="destiny-character destiny-character-{{@index}}">
-                        <div class="destiny-character-emblem" style="background-image:url('{{emblemBg}}')">
-                            <div class="destiny-character-class destiny-character-class-{{class}}"></div>
-                            <div class="destiny-character-details">
-                                <div class="destiny-character-light" title="Light">{{light}}</div>
-                                <div class="destiny-character-level" title="Level">{{level}}</div>
-                            </div>
-                            <div class="destiny-character-stats">
-                                {{#each stats}}
-                                    <div class="destiny-character-stat destiny-character-stat-{{name}}">
-                                        <div class="destiny-character-stat-icon" title="{{name}}" style="background-image:url('{{icon}}')"></div>
-                                        <div class="destiny-character-stat-value" title="{{name}}">{{value}}</div>
-                                    </div>
-                                {{/each}}
-                            </div>
-                        </div>
-                        
-                    </div>
-                {{/each}}
-            </div>
+<div id="division-container" style="display: none;">
+    <div class="profile-titles">
+        <div class="profile-title-user"></div>
+        <div class="profile-title-details">
+            <div class="profile-title-gearscore">Gear #</div>
+            <div class="profile-title-pvelvl">PvE Lvl</div>
+            <div class="profile-title-pvplvl">DZ Lvl</div>
+            <div class="profile-title-pvekills">PvE Kills</div>
+            <div class="profile-title-pvpkills">PvP Kills</div>
         </div>
-    {{/each}}
+    </div>
+    <div class="profiles">
+        {{#each divisionData}}
+            <div class="profile">
+                <div class="profile-user">
+                    <div class="profile-avatar" style="background-image:url('{{avatar_146}}')"></div>
+                    <div class="profile-summary">
+                        <div class="division-profile-name">{{name}}</div>
+                        <div class="division-profile-spec">{{niceName}} | {{capString specialization}}</div>
+                    </div>
+                </div>
+                <div class="division-profile-details">
+                    <div class="profile-details-text division-profile-details-gearscore">{{gearscore}}</div>
+                    <div class="profile-details-text division-profile-details-pvelvl">{{level_pve}}</div>
+                    <div class="profile-details-text division-profile-details-pvplvl">{{level_dz}}</div>
+                    <div class="profile-details-text division-profile-details-pvekills">{{kills_npc}}</div>
+                    <div class="profile-details-text division-profile-details-pvpkills">{{kills_pvp}}</div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
 </div>
 
 <div id="wow-container" style="display: none;">
