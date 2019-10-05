@@ -94,5 +94,35 @@ module.exports = [
         niceName: "Travis",
         platform: "uplay",
         id: "1f0b4ecb-7629-46fb-822c-01c75d5f5d76",
+    },
+    {
+        name: "BruxB",
+        niceName: "Brooks",
+        platform: "uplay",
+        id: "783ecaf6-5a75-424d-925c-a198e397bfff",
+    },
+    {
+        name: "element0logy",
+        niceName: "Chris",
+        platform: "uplay",
+        id: "bb6d768e-711a-4e03-8447-a234fe3785dd",
+    },
+    {
+        name: "jobiasRKD",
+        niceName: "James L",
+        platform: "uplay",
+        id: "3331d5aa-3bfe-4654-a7a5-de18c00fc967",
+    },
+    {
+        name: "chuckz0rd",
+        niceName: "Mauricio",
+        platform: "uplay",
+        id: "90e40877-bb83-4bfe-af56-b9efd68a2977",
+    },
+    {
+        name: "itzmattu",
+        niceName: "Mattu",
+        platform: "uplay",
+        id: "fa87a5f4-f458-4caf-9813-64d53048d57e",
     }
 ]
