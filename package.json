@@ -22,12 +22,15 @@
   "license": "MIT",
   "dependencies": {
     "async": "^2.6.1",
+    "bluebird": "^3.7.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "redis": "^2.8.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "simple-oauth2": "^2.5.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.4",

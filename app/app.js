@@ -47,18 +47,18 @@ const redisClient = {
 // Routes - General
 app.get('/', async (req, res) => {
     var googleAnalytics = null;
-    var divisionData = JSON.parse(await redisClient.getAsync("division-characters"));
-    //var wowData = JSON.parse(await redisClient.getAsync("wow-characters"));
     var destinyData = JSON.parse(await redisClient.getAsync("destiny-characters"));
+    var divisionData = JSON.parse(await redisClient.getAsync("division-characters"));
+    var wowData = JSON.parse(await redisClient.getAsync("wow-characters"));
 
     if(process.env.PLATFORM == "prod") {
         googleAnalytics = process.env.GOOGLE_ANALYTICS;
     }
 
     res.render(__dirname + '/views/index', {
-        divisionData,
-        //wowData,
         destinyData,
+        divisionData,
+        wowData,
         googleAnalytics: googleAnalytics
     });
 });
@@ -66,16 +66,18 @@ app.get('/', async (req, res) => {
 // Routes - General
 app.get('/bff', async (req, res) => {
     var googleAnalytics = null;
-    var divisionData = JSON.parse(await redisClient.getAsync("bff-division-characters"));
     var destinyData = JSON.parse(await redisClient.getAsync("bff-destiny-characters"));
+    var divisionData = JSON.parse(await redisClient.getAsync("bff-division-characters"));
+    var wowData = JSON.parse(await redisClient.getAsync("bff-wow-characters"));
 
     if(process.env.PLATFORM == "prod") {
         googleAnalytics = process.env.GOOGLE_ANALYTICS;
     }
 
     res.render(__dirname + '/views/index', {
-        divisionData,
         destinyData,
+        divisionData,
+        wowData,
         googleAnalytics: googleAnalytics
     });
 });

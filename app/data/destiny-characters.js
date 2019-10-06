@@ -51,6 +51,7 @@ module.exports = [
     {
         name: "EredWethrin",
         platformName: "EredWethrin#1451",
+        niceName: "Ered",
         platform: 3,
         id: "4611686018468646265"
     },
