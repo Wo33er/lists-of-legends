@@ -95,7 +95,7 @@ router.get('/characters/bff/:update?', async (req, res) => {
         });
     }).then(function(result) {
         result.sort(function(a, b) {
-            return b.items.averageItemLevel - a.items.averageItemLevel;
+            return b.averageItemLevel - a.averageItemLevel;
         });
         if(req.params.update) {
             redisClient.setAsync("bff-wow-characters", JSON.stringify(result));
