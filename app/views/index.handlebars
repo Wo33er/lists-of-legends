@@ -88,24 +88,38 @@
 </div>
 
 <div id="wow-container" style="display: none;">
-    {{#each wowData}}
-        <div class="wow-character">
-            <div class="wow-character-avatar" style="background-image:url('{{inset}}')">
-                <div class="wow-character-faction wow-faction-{{faction}}"></div>
-            </div>
-            <div class="wow-character-summary">
-                <div class="wow-character-name wow-class-{{class}}">{{name}}</div>
-                <div class="wow-character-titles">{{level}} <span class="wow-race-{{race}}"></span> <span class="wow-class-{{class}}"></span></div>
-            </div>
-            <div class="wow-character-details">
-                <div class="wow-character-details-text wow-character-details-level">{{averageItemLevel}}</div>
-                <div class="wow-character-details-text wow-character-details-achievements">{{achievements}}</div>
-                <div class="wow-character-details-text wow-character-details-neck">{{azeriteLevel}}</div>
-                <div class="wow-character-details-text wow-character-details-pets">{{totalPets}}</div>
-                <div class="wow-character-details-text wow-character-details-mounts">{{totalMounts}}</div>
-            </div>
+    <div class="profile-titles">
+        <div class="profile-title-user"></div>
+        <div class="profile-title-details">
+            <div class="profile-title-ilvl">iLvl</div>
+            <div class="profile-title-achievements">Achiev</div>
+            <div class="profile-title-neck">Azeroth Neck</div>
+            <div class="profile-title-pets">Pets</div>
+            <div class="profile-title-mounts">Mounts</div>
         </div>
-    {{/each}}
+    </div>
+    <div class="profiles">
+        {{#each wowData}}
+            <div class="profile">
+                <div class="profile-user">
+                    <div class="profile-avatar" style="background-image:url('{{inset}}')">
+                        <div class="wow-character-faction wow-faction-{{faction}}"></div>
+                    </div>
+                    <div class="profile-summary">
+                        <div class="wow-profile-name wow-class-{{class}}">{{name}}</div>
+                        <div class="wow-profile-spec">{{level}} <span class="wow-race-{{race}}"></span> <span class="wow-class-{{class}}"></span></div>
+                    </div>
+                </div>
+                <div class="wow-profile-details">
+                    <div class="profile-details-text wow-profile-details-ilvl">{{averageItemLevel}}</div>
+                    <div class="profile-details-text wow-profile-details-achievements">{{achievements}}</div>
+                    <div class="profile-details-text wow-profile-details-neck">{{azeriteLevel}}</div>
+                    <div class="profile-details-text wow-profile-details-pets">{{totalPets}}</div>
+                    <div class="profile-details-text wow-profile-details-mounts">{{totalMounts}}</div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
 </div>
 
 <script>

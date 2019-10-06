@@ -56,6 +56,10 @@
             cursor: pointer;
         }
     }
+    &> div:last-of-type {
+        border-radius: 0 0 5px 5px;
+        margin-bottom: 10px;
+    }
 }
 .profile {
     display: flex;
@@ -72,8 +76,9 @@
     }
 }
 .profile-avatar {
+    position: relative;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: 50%;
     width: 40px;
     height: 40px;
