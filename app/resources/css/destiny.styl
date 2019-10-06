@@ -1,16 +1,8 @@
-#destiny-container {
-    min-width: 880px;
-    
-    @media screen and (max-width: 650px) {
-        min-width: 785px;
-    }
-}
-
 .destiny-profile-name {
     font-weight: bold;
     font-size: 18px;
     
-    @media screen and (max-width: 650px) {
+    @media screen and (max-width: 700px) {
         font-size: 13px !important;
     }
 }
@@ -23,49 +15,39 @@
 .destiny-profile-details {
     display: flex;
     align-items: center;
-    flex: auto;
-
-    & > div {
-        margin: 0 12px;
-    }
-}
-.destiny-profile-details-text {
-    &:before {
-        color: #dbdbdb;
-        font-weight: bold;
-        margin-bottom: 5px;
-        text-align: center;
-    }
-}
-
-//
-
-.destiny-profile-characters {
-    display: flex;
-    flex-wrap: wrap;
     flex: 1 0;
-    justify-content: flex-end;
 }
 .destiny-character {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    //margin: 15px 26px 15px 0;
+    flex: 0 0 33%;
 }
+.destiny-character-pad {
+    flex: 1 0 auto;
+    margin: 0 12px;
+    display: flex;
+    justify-content: center;
+}
+
 .destiny-character-emblem {
     background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 50%;
+    background-size: cover;
+    background-position: 0 50%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px 0 40px;
     height: 42px;
     position: relative;
+    width: 100%;
 
     &:hover {
         opacity: 0.9;
         cursor: pointer;
+    }
+    @media screen and (max-width: 700px) {
+        width: 34px;
+        padding: 0 12px 0 40px !important;
     }
 }
 .destiny-character-class {
@@ -76,15 +58,20 @@
     height: 55px;
     position: absolute;
     top: -4px;
-    right: 10px;
+    right: 5px;
 
     &.destiny-character-class-0 { background-position: -43px 0; }
     &.destiny-character-class-1 { background-position: -4px 0; }
     &.destiny-character-class-2 { background-position: -82px 0; }
+    
+    @media screen and (max-width: 700px) {
+        right: 50px !important;
+    }
 }
 .destiny-character-details {
-    display: flex;
-    flex-direction: column;
+    position: absolute;
+    top: 8px;
+    left: 40px;
 }
 .destiny-character-light {
     color: #e0e04e;
@@ -101,6 +88,13 @@
 }
 .destiny-character-stats {
     display: flex;
+    position: absolute;
+    top: 4px;
+    right: 44px;
+    
+    @media screen and (max-width: 890px) {
+        visibility: hidden;
+    }
 }
 .destiny-character-stat {
     display: flex;

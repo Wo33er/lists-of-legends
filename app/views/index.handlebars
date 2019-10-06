@@ -29,19 +29,21 @@
                 <div class="destiny-profile-details">
                     {{#each characters}}
                         <div class="destiny-character destiny-character-{{@index}}">
-                            <div class="destiny-character-emblem" style="background-image:url('{{emblemBg}}')">
-                                <div class="destiny-character-class destiny-character-class-{{class}}"></div>
-                                <div class="destiny-character-details">
-                                    <div class="destiny-character-light" title="Light">{{light}}</div>
-                                    <div class="destiny-character-level" title="Level">{{level}}</div>
-                                </div>
-                                <div class="destiny-character-stats">
-                                    {{#each stats}}
-                                        <div class="destiny-character-stat destiny-character-stat-{{name}}">
-                                            <div class="destiny-character-stat-icon" title="{{name}}" style="background-image:url('{{icon}}')"></div>
-                                            <div class="destiny-character-stat-value" title="{{name}}">{{value}}</div>
-                                        </div>
-                                    {{/each}}
+                            <div class="destiny-character-pad">
+                                <div class="destiny-character-emblem" style="background-image:url('{{emblemBg}}')">
+                                    <div class="destiny-character-class destiny-character-class-{{class}}"></div>
+                                    <div class="destiny-character-details">
+                                        <div class="destiny-character-light" title="Light">{{light}}</div>
+                                        <div class="destiny-character-level" title="Level">{{level}}</div>
+                                    </div>
+                                    <div class="destiny-character-stats">
+                                        {{#each stats}}
+                                            <div class="destiny-character-stat destiny-character-stat-{{name}}">
+                                                <div class="destiny-character-stat-icon" title="{{name}}" style="background-image:url('{{icon}}')"></div>
+                                                <div class="destiny-character-stat-value" title="{{name}}">{{value}}</div>
+                                            </div>
+                                        {{/each}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
