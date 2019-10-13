@@ -101,7 +101,7 @@ var destinyRouter = require('./routes/destiny-router');
 app.use('/destiny', destinyRouter);
 
 // Start app
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });

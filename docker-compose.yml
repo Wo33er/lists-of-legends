@@ -1,10 +1,10 @@
 redis:
-  container_name: listsoflegends_cache
+  container_name: lists_cache
   image: redis
   expose:
     - 6379
 app:
-  container_name: listsoflegends_site
+  container_name: lists_site
   build: ./
   volumes:
     - ./:/var/www
@@ -13,7 +13,7 @@ app:
   ports:
     - 3001:3001
   environment:
-    - REDIS_URL=redis://listsoflegends_cache
+    - REDIS_URL=redis://lists_cache
     - NODE_ENV=development
     - PORT=3001
   command:

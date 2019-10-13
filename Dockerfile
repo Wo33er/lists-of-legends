@@ -1,5 +1,6 @@
-# Dockerfile
 FROM node:9-alpine
-# Or whatever Node version/image you want
-COPY . .
-WORKDIR '/var/www'
+
+EXPOSE 3001
+WORKDIR /app
+COPY . /app
+CMD ["node", "app/app.js"]
