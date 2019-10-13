@@ -70,5 +70,11 @@ module.exports = [
         platform: 3,
         id: "4611686018467482588",
         niceName: "Andy"
+    },
+    {
+        name: "Justjob",
+        platform: 3,
+        id: "4611686018490670106",
+        niceName: "Justin"
     }
 ]
