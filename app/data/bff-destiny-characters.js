@@ -46,18 +46,18 @@ module.exports = [
         platform: 3,
         id: "4611686018467312834",
         niceName: "Vic"
-    },/*
-    {
-        name: "cTse",
-        platform: 3,
-        id: "4611686018467356321",
-        niceName: "Benson"
     },
     {
         name: "Mattu",
         platform: 3,
         id: "4611686018472233896",
         niceName: "Matt"
+    },/*
+    {
+        name: "cTse",
+        platform: 3,
+        id: "4611686018467356321",
+        niceName: "Benson"
     },
     {
         name: "JustJob",
