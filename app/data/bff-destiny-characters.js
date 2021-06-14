@@ -52,7 +52,13 @@ module.exports = [
         platform: 3,
         id: "4611686018472233896",
         niceName: "Matt"
-    },/*
+    },
+    {
+        name: "SpookyDooky",
+        platform: 3,
+        id: "4611686018514942880",
+        niceName: "Albert"
+    }/*
     {
         name: "cTse",
         platform: 3,
